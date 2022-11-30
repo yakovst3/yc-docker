@@ -4,6 +4,8 @@ const { Client, MessageMedia, LocalAuth } = require("whatsapp-web.js");
 var mime = require("mime-types");
 const fs = require("fs");
 
+console.log(process.env.WEBHOOK);
+
 const client = new Client({
   authStrategy: new LocalAuth(),
   puppeteer: {
@@ -45,9 +47,7 @@ client.on("message", async (message) => {
   };
 
   request.get(
-    `<webhook address goes here>?${new URLSearchParams(
-      params
-    )}`,
+    `${process.env.WEBHOOK}?${new URLSearchParams(params)}`,
     {},
     (err, res, body) => {
       console.log(body);
@@ -70,9 +70,12 @@ app.post("/message", async (req, res) => {
   try {
     let media = null;
     if (req.query.fname) {
-      const data = fs.readFileSync(`${process.cwd()}/files/upload/${req.query.fname}`, {
-        encoding: "base64",
-      });
+      const data = fs.readFileSync(
+        `${process.cwd()}/files/upload/${req.query.fname}`,
+        {
+          encoding: "base64",
+        }
+      );
       media = new MessageMedia(
         mime.lookup(req.query.fname),
         data,
