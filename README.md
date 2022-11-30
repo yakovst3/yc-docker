@@ -9,7 +9,7 @@ docker build . -t dovid-moshe-crow/yc-docker
 ### to run
 
 ```sh
-docker run -p 1234:1234 -d --name <the name you choose>  dovid-moshe-crow/yc-docker
+docker run -p 4321:4321 -d --name <the name you choose>  dovid-moshe-crow/yc-docker
 ```
 
 #### open ports
