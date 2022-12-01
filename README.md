@@ -22,4 +22,4 @@ docker build . -t dovid-moshe-crow/yc-docker
 - `/files/upload`
 
 #### upload files to: POST `/upload` using `Multipart/form-data` with key `file` , the file is saved in `/files/upload`
-#### upload files to: POST `/upload-whatsapp` using `Multipart/form-data` with key `file` , , the file is saved in `/files/whatsapp`
+#### upload files to: POST `/upload-whatsapp` using `Multipart/form-data` with key `file` , the file is saved in `/files/whatsapp`
