@@ -9,7 +9,9 @@ docker build . -t dovid-moshe-crow/yc-docker
 ### to run
 
 ```sh
- docker run --env WEBHOOK=<webhook address goes here> -p 4321:4321 -d --name <the name you choose>  dovid-moshe-crow/yc-docker 
+ docker run --env WEBHOOK=<webhook address goes here> -p 4321:4321 -d -v <local path>:/usr/src/app/files --name <the name you choose>  dovid-moshe-crow/yc-docker
+ mkdir <local path>/upload
+ mkdir <local path>/whatsapp
 ```
 
 #### open ports
