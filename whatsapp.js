@@ -97,7 +97,24 @@ app.post("/upload", async (req, res) => {
     `${process.cwd()}/files/upload/${req.files.file.name}`,
     req.files.file.data,
     "base64",
-    () => console.log("file uploaded")
+    () =>
+      console.log(
+        `file uploaded: ${process.cwd()}/files/upload/${req.files.file.name}`
+      )
+  );
+
+  res.json({ success: true });
+});
+
+app.post("/upload-whatsapp", async (req, res) => {
+  fs.writeFileSync(
+    `${process.cwd()}/files/whatsapp/${req.files.file.name}`,
+    req.files.file.data,
+    "base64",
+    () =>
+      console.log(
+        `file uploaded: ${process.cwd()}/files/whatsapp/${req.files.file.name}`
+      )
   );
 
   res.json({ success: true });
