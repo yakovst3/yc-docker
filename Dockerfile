@@ -17,4 +17,5 @@ COPY . .
 
 EXPOSE 4321
 
+CMD [ "npm" , "update"]
 CMD [ "node", "whatsapp.js" ]
